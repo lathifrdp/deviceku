@@ -1,4 +1,4 @@
-package id.mobile.hapeku
+package id.mobile.deviceku
 
 import org.junit.Test
 

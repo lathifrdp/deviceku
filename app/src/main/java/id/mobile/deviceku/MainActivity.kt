@@ -1,4 +1,4 @@
-package id.mobile.hapeku
+package id.mobile.deviceku
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import id.mobile.hapeku.databinding.ActivityMainBinding
+import id.mobile.deviceku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

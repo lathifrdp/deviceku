@@ -1,4 +1,4 @@
-package id.mobile.hapeku.client
+package id.mobile.deviceku.client
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "id.mobile.hapeku"
+    namespace = "id.mobile.deviceku"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "id.mobile.hapeku"
+        applicationId = "id.mobile.deviceku"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

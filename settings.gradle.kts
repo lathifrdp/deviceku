@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Hapeku"
+rootProject.name = "Deviceku"
 include(":app")
  

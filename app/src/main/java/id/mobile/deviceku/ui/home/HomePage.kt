@@ -35,13 +35,13 @@ import id.mobile.deviceku.theme.DeviceKuTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomePage(viewModel: HomeViewModel) {
+fun HomePage(viewModel: HomeViewModel, onFabClick: () -> Unit) {
     DeviceKuTheme {
         Scaffold(
             floatingActionButton = {
                 FloatingActionButton(
                     modifier = Modifier.padding(bottom = 64.dp),
-                    onClick = {},
+                    onClick = onFabClick,
                     containerColor = MaterialTheme.colorScheme.secondary,
                     shape = RoundedCornerShape(16.dp),
                 ) {
@@ -77,7 +77,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
 
     Box(modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 64.dp)) {
         when (val state = uiState.value) {
-            is UiState.Loading -> {
+            is UiState.GetDeviceLoading -> {
                 Box(
                     contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize(),
                 ) {
@@ -85,7 +85,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                 }
             }
 
-            is UiState.Success -> {
+            is UiState.GetDeviceLoaded -> {
                 Column {
                     if (listDevice.isEmpty()) {
                         Text(text = "Data Kosong")
@@ -101,12 +101,14 @@ fun HomeScreen(viewModel: HomeViewModel) {
                                 )
                                 Spacer(modifier = Modifier.padding(2.dp))
                                 Text(
-                                    text = (if (data.data?.color != null) data.data.color else "-"),
+                                    text = (if (data.data?.color != null) data.data.color else "-")
+                                        ?: "-",
                                     style = MaterialTheme.typography.titleSmall,
                                 )
                                 Spacer(modifier = Modifier.padding(4.dp))
                                 Text(
-                                    text = (if (data.data?.price != null) data.data.price else "-"),
+                                    text = (if (data.data?.price != null) data.data.price else "-")
+                                        ?: "-",
                                     style = MaterialTheme.typography.titleSmall,
                                     textAlign = TextAlign.End
                                 )
@@ -118,7 +120,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                 }
             }
 
-            is UiState.Error -> {
+            is UiState.GetDeviceError -> {
                 Text(text = state.message)
             }
         }

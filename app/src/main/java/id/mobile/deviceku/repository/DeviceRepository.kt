@@ -1,21 +1,21 @@
 package id.mobile.deviceku.repository
 
 import id.mobile.deviceku.client.Client
-import id.mobile.deviceku.model.DeviceModel
-import id.mobile.deviceku.model.DeviceResponseModel
+import id.mobile.deviceku.model.DeviceParameter
+import id.mobile.deviceku.model.DeviceResponse
 
 class DeviceRepository {
     private val api = Client.deviceInterface
 
-    suspend fun getDevice(): List<DeviceResponseModel> {
+    suspend fun getDevice(): List<DeviceResponse> {
         return api.getListDevice()
     }
 
-    suspend fun getDetailDevice(id: String): DeviceResponseModel {
+    suspend fun getDetailDevice(id: String): DeviceResponse {
         return api.getDetailDevice(id = id)
     }
 
-    suspend fun postDevice(deviceModel: DeviceModel): DeviceResponseModel {
-        return api.postDevice(data = deviceModel)
+    suspend fun postDevice(parameter: DeviceParameter): DeviceResponse {
+        return api.postDevice(data = parameter)
     }
 }

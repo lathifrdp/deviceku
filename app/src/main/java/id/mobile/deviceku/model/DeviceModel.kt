@@ -1,37 +1,53 @@
 package id.mobile.deviceku.model
+
 import com.google.gson.annotations.SerializedName
 
-class DeviceModel (
+class DeviceModel() {
     @field:SerializedName("Color")
-    val dataColor: String? = null,
+    var dataColor: String? = null
+
     @field:SerializedName("Capacity")
-    val dataCapacity: String? = null,
+    var dataCapacity: String? = null
+
     @field:SerializedName("capacity GB")
-    val capacityGB: Long? = null,
+    var capacityGB: Long? = null
+
     @field:SerializedName("Price")
-    val dataPrice: Double? = null,
+    var dataPrice: Double? = null
+
     @field:SerializedName("Generation")
-    val dataGeneration: String? = null,
+    var dataGeneration: String? = null
+
     @field:SerializedName("year")
-    val year: Long? = null,
+    var year: Long? = null
+
     @field:SerializedName("CPU model")
-    val cpuModel: String? = null,
+    var cpuModel: String? = null
+
     @field:SerializedName("Hard disk size")
-    val hardDiskSize: String? = null,
+    var hardDiskSize: String? = null
+
     @field:SerializedName("Strap Colour")
-    val strapColour: String? = null,
+    var strapColour: String? = null
+
     @field:SerializedName("Case Size")
-    val caseSize: String? = null,
+    var caseSize: String? = null
+
     @field:SerializedName("color")
-    val color: String? = null,
+    var color: String? = null
+
     @field:SerializedName("description")
-    val description: String? = null,
+    var description: String? = null
+
     @field:SerializedName("capacity")
-    val capacity: String? = null,
+    var capacity: String? = null
+
     @field:SerializedName("Screen size")
-    val screenSize: Double? = null,
+    var screenSize: Double? = null
+
     @field:SerializedName("generation")
-    val generation: String? = null,
+    var generation: String? = null
+
     @field:SerializedName("price")
-    val price: String? = null
-)
+    var price: String? = null
+}

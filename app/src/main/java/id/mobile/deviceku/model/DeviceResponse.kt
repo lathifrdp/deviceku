@@ -2,7 +2,7 @@ package id.mobile.deviceku.model
 
 import com.google.gson.annotations.SerializedName
 
-class DeviceResponseModel (
+class DeviceResponse (
     @field:SerializedName("id")
     val id: String? = null,
     @field:SerializedName("name")

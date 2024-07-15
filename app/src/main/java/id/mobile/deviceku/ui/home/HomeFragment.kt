@@ -23,6 +23,9 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import id.mobile.deviceku.R
 import id.mobile.deviceku.databinding.FragmentHomeBinding
 import id.mobile.deviceku.theme.DeviceKuTheme
 
@@ -39,6 +42,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val navController = findNavController()
         val homeViewModel =
             ViewModelProvider(this)[HomeViewModel::class.java]
 
@@ -72,13 +76,10 @@ class HomeFragment : Fragment() {
             )
 
             setContent {
-                HomePage(homeViewModel)
+                HomePage(homeViewModel){
+                    navController.navigate(R.id.action_home_to_form)
+                }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        //_binding = null
     }
 }

@@ -5,15 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import id.mobile.deviceku.model.DeviceResponseModel
+import id.mobile.deviceku.model.DeviceResponse
 import id.mobile.deviceku.repository.DeviceRepository
 import kotlinx.coroutines.launch
 
 class DashboardViewModel : ViewModel() {
 
     private val repository = DeviceRepository()
-    private val _listDevice = MutableLiveData<List<DeviceResponseModel>>()
-    val listDevice: LiveData<List<DeviceResponseModel>> = _listDevice
+    private val _listDevice = MutableLiveData<List<DeviceResponse>>()
+    val listDevice: LiveData<List<DeviceResponse>> = _listDevice
 
     fun getListDevice() {
         viewModelScope.launch {

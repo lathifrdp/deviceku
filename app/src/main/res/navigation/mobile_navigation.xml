@@ -17,9 +17,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="id.mobile.deviceku.ui.dashboard.DashboardFragment"
+        android:name="id.mobile.deviceku.ui.movie.MovieFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_home_to_form"
+            app:destination="@id/formFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"

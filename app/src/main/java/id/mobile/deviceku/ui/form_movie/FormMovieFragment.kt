@@ -1,4 +1,4 @@
-package id.mobile.deviceku.ui.movie
+package id.mobile.deviceku.ui.form_movie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,17 +9,13 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import id.mobile.deviceku.R
 
-class MovieFragment : Fragment() {
+class FormMovieFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         val navController = findNavController()
-        val movieViewModel =
-            ViewModelProvider(this)[MovieViewModel::class.java]
+        val formMovieViewModel = ViewModelProvider(this)[FormMovieViewModel::class.java]
 
         return ComposeView(requireContext()).apply {
             // Dispose the Composition when viewLifecycleOwner is destroyed
@@ -28,9 +24,9 @@ class MovieFragment : Fragment() {
             )
 
             setContent {
-                MoviePage(movieViewModel){
-                    navController.navigate(R.id.action_movie_to_form)
-                }
+                FormMoviePage(formMovieViewModel, onFormValidated = {
+                    navController.popBackStack()
+                })
             }
         }
     }

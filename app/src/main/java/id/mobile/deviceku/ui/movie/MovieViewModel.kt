@@ -32,7 +32,7 @@ class MovieViewModel : ViewModel() {
             try {
                 delay(2000) // Simulating network delay
                 val data = repository.getMovie()
-                _listMovie.value = data.data ?: emptyList()
+                _listMovie.value = data.data?.reversed() ?: emptyList()
                 _uiState.value = MovieUiState.GetMovieLoaded("Data fetched successfully")
             } catch (e: Exception) {
                 // Handle error

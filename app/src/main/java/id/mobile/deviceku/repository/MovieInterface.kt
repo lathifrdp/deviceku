@@ -7,6 +7,7 @@ import id.mobile.deviceku.model.MovieParameter
 import id.mobile.deviceku.model.MovieResponse
 import id.mobile.deviceku.model.PostMovieResponse
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Multipart
@@ -26,6 +27,7 @@ interface MovieInterface {
     @POST("movie")
     suspend fun postMovie(
         @Part poster: MultipartBody.Part?,
-        @Body data: MovieParameter?
+        @Part("title") title: RequestBody?,
+        @Part("description") description: RequestBody?
     ): PostMovieResponse
 }

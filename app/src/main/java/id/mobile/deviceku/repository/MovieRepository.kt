@@ -9,10 +9,10 @@ class MovieRepository {
     private val api = MovieClient.movieInterface
 
     suspend fun getMovie(): MovieResponse {
-        return api.getListMovie(page = 1, size = 10)
+        return api.getListMovie(page = 23, size = 10)
     }
 
     suspend fun postDevice(parameter: MovieParameter): PostMovieResponse {
-        return api.postMovie(data = parameter, poster = null)
+        return api.postMovie(poster = null, title = parameter.title, description = parameter.description)
     }
 }

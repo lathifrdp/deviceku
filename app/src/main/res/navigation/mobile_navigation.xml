@@ -21,8 +21,8 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
-            android:id="@+id/action_home_to_form"
-            app:destination="@id/formFragment" />
+            android:id="@+id/action_movie_to_form"
+            app:destination="@id/formMovieFragment" />
     </fragment>
 
     <fragment
@@ -35,4 +35,9 @@
         android:id="@+id/formFragment"
         android:name="id.mobile.deviceku.ui.form.FormFragment"
         android:label="Form" />
+
+    <fragment
+        android:id="@+id/formMovieFragment"
+        android:name="id.mobile.deviceku.ui.form_movie.FormMovieFragment"
+        android:label="Form Movie" />
 </navigation>

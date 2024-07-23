@@ -1,10 +1,11 @@
 package id.mobile.deviceku.model
 
 import com.google.gson.annotations.SerializedName
+import okhttp3.RequestBody
 
 class MovieParameter(
     @field:SerializedName("title")
-    var title: String? = null,
+    var title: RequestBody? = null,
     @field:SerializedName("description")
-    var description: String? = null
+    var description: RequestBody? = null
 )

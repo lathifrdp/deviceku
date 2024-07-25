@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="id.mobile.deviceku.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="Device"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_to_form"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="id.mobile.deviceku.ui.movie.MovieFragment"
-        android:label="@string/title_dashboard"
+        android:label="Movie"
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_movie_to_form"

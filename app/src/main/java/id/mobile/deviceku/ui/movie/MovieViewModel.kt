@@ -27,17 +27,30 @@ class MovieViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<MovieUiState>(MovieUiState.GetMovieLoading)
     val uiState: StateFlow<MovieUiState> = _uiState
 
+    private var currentPage = 1
+    var isLoading = false
+    private var hasMoreData = true
+
     fun getListMovie() {
+        if (isLoading || !hasMoreData) return
+
+        isLoading = true
+
         viewModelScope.launch {
             try {
-                delay(2000) // Simulating network delay
-                val data = repository.getMovie()
-                _listMovie.value = data.data?.reversed() ?: emptyList()
+                //delay(2000) // Simulating network delay
+                val data = repository.getMovie(page = currentPage, size = 100)
+                val currentList = _listMovie.value ?: emptyList()
+                _listMovie.value = currentList + (data.data ?: emptyList())
                 _uiState.value = MovieUiState.GetMovieLoaded("Data fetched successfully")
+                currentPage++
+                hasMoreData = data.data?.isNotEmpty() == true
             } catch (e: Exception) {
                 // Handle error
                 _uiState.value = MovieUiState.GetMovieError("Error fetching data")
                 Log.e("getMovieDevice", e.message.toString());
+            } finally {
+                isLoading = false
             }
         }
     }

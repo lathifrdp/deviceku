@@ -36,7 +36,9 @@ import id.mobile.deviceku.theme.DeviceKuTheme
 import id.mobile.deviceku.ui.form.FormViewModel
 import id.mobile.deviceku.ui.form.PostDeviceUiState
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -127,8 +129,9 @@ fun FormMovieScreen(viewModel: FormMovieViewModel, onFormValidated: () -> Unit) 
                             ).show()
                         },
                         onValidate = {
-                            val titleBody = RequestBody.create(MediaType.parse("text/plain"), title)
-                            val descriptionBody = RequestBody.create(MediaType.parse("text/plain"), description)
+                            val titleBody = title.toRequestBody("text/plain".toMediaTypeOrNull())
+                            val descriptionBody =
+                                description.toRequestBody("text/plain".toMediaTypeOrNull())
 
                             val data = MovieParameter()
                             data.title = titleBody

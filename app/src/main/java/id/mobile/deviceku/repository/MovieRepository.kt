@@ -8,8 +8,8 @@ import id.mobile.deviceku.model.PostMovieResponse
 class MovieRepository {
     private val api = MovieClient.movieInterface
 
-    suspend fun getMovie(): MovieResponse {
-        return api.getListMovie(page = 23, size = 10)
+    suspend fun getMovie(page: Int, size: Int): MovieResponse {
+        return api.getListMovie(page = page, size = size)
     }
 
     suspend fun postDevice(parameter: MovieParameter): PostMovieResponse {
